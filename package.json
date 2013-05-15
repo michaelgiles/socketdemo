@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-6",
+  "subdomain": "shoenode",
+  "dependencies": {
+    "socket.io": "*",
+    "connect": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "description": "[http://socket.io](http://socket.io)",
+  "dist": {
+    "shasum": "9ccb1e70be313e6c6694ad11b2020be291e1a989"
+  },
+  "author": {
+    "name": "Michael Giles",
+    "email": "michael.giles@72andsunny.com"
+  },
+  "license": "BSD",
+  "analyze": false,
+  "main": "server.js",
+  "name": "shoesocket"
+}
