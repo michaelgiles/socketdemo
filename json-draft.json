@@ -1,0 +1,40 @@
+// Connect
+{
+  "message": "the message",
+  "timestamp" : "12-12-12-12-"
+}
+
+
+// Mode change
+{
+  "mode": "1",
+  "timestamp" : "12-12-12-12..."
+}
+
+// Google Plus Info
+{
+  "userPic": "url",
+  "userName" : "name"
+}
+
+
+// Movement
+{
+  "speed": "120",
+  "angle" : "180",
+  "pressure" : {
+	"fsr1" : "123",
+	"fsr2" : "123",  
+	"fsr3" : "123"
+  },
+  "timestamp" : "12-12-12-12..."
+}
+
+
+// Message
+{
+  "message": "the message",
+  "timestamp" : "12-12-12-12...",
+  "mode" : "1"
+}
+ 
