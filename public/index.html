@@ -1,133 +1,128 @@
 <html>
 <head>
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="http://thetalkingshoe.com:8080/socket.io/socket.io.js"></script>
 <script src="jquery-1.7.2.min.js"></script>
 <script type="text/javascript" charset="utf-8">
+$(document).ready(function () {	
 
-$(document).ready(function () {
-	
-	
-	// Global 
-	var socket = io.connect('http://localhost:3000');
+	var socket = io.connect('http://thetalkingshoe.com:8080');
 
-	socket.on('entrance', function  (data) {
-		log_chat_message(data.message, 'system');
-	});
 
-	socket.on('exit', function  (data) {
-		log_chat_message(data.message, 'leave');
-	});
-
-	socket.on('chat', function  (data) {
-		log_chat_message(data.message, 'normal');
-	});
-	
-	// CUSTOM EVENTS TEMPLATE
-	
-	
-	// Google Plus Sign In
-	socket.on('googlePlus', function  (data) {
-	});
+	// Session start handler
+	socket.on('sessionStart', function (msg) {
 		
-	// Mode change
-	socket.on('modeChange', function  (data) {	
-	});
-
-	// Message
-	socket.on('message', function  (msg) {	
-	});
-	
-	// Mute banner
-	socket.on('muteSounds', function  (data) {	
-	})
-
-	// Custom event
-	socket.on('event', function  (data) {		
-		$('#event-output').html(data.message);
-	});
-
-	// Chat function
-	var log_chat_message = function  (message, type) {
-		var li = $('<li />').text(message);
+		console.log('session started');
+		$('#sessionStart p').html('session started');
 		
-		if (type === 'system') {
-			li.css({'font-weight': 'bold'});
-		} else if (type === 'leave') {
-			li.css({'font-weight': 'bold', 'color': '#F00'});
-		}
-				
-		$('#chat_log').append(li);
-	};
-	
-	// Chat keypress
-	$('#chat_box').keypress(function (event) {
-		if (event.which == 13) {
-			socket.emit('chat', {message: $('#chat_box').val()});
-			$('#chat_box').val('');
-		}
-	});
-	
-	
-	// Sample event 
-	$('#event-output').click(function (event) {
+		$('#sessionStart').animate({
+			marginTop:200	
+		}, 500, function(){
+			$('#sessionStart').animate({
+				marginTop:0
+			});	
+		});
 		
-			// socket.emit('testEvent', {message:  'hello there' });
-			
-			log_chat_message('yolo', 'normal');
-			
-			// $('#event-output').val('you clicked me dude');		
+	}); 
+
+	// Session end handler
+	socket.on('sessionEnd', function (msg) {
+		
+		console.log('session ended');
+		$('#sessionEnd p').html('session ended');
+		
+		$('#sessionEnd').animate({
+			marginTop:200	
+		}, 500, function(){
+			$('#sessionEnd').animate({
+				marginTop:0
+			});	
+		});
+		
 	});
 	
+	// Message handler
+	socket.on('message', function (msg) {
+		
+		console.log('Message: ' + msg.message);
+		$('#message p').html(msg.message);
 
-});
+		
+	});
+	
+	// Mode change handler
+	socket.on('modeChange', function (msg) {
+		
+		console.log('Mode: ' + msg.mode);
+		$('#modeChange p').html(msg.mode);
+		
+		$('#modeChange').animate({
+			marginTop:200	
+		}, 500, function(){
+			$('#modeChange').animate({
+				marginTop:0
+			});	
+		});
+		
+	});
 
-	
 
-	
-	
-	
 
+}); // end doc ready
 
 </script>
 <style type="text/css" media="screen">
-	div#chatroom {
-		display: block;
-		height: 300px;
-		border: 1px solid #999;
-		overflow: auto;
-		width: 100%;
-		margin-bottom: 10px;
-		position: relative;
-	}
 
-	ul#chat_log {
-		list-style: none;
-		position: absolute;
-		bottom: 0px;
-	}
-
-	input#chat_box {
-		width: 99%;
-	}
+#sessionStart, #modeChange, #sessionEnd,#message {
+	width: 150px;
+	height: 150px;
+	background: -webkit-linear-gradient(#1287c7 0%, #00b3ff 100%);
+	float: left;
+	clear: right;
+	margin: 0 20px 0 0;
+	text-align: center;
+	color: white;
+	font-family: sans-serif;
+	font-size: 14px;
+}	
+#message {
+	width: 300px;
+	height: 150px;
+	border: 1px solid #999;
+	box-sizing: border-box;
+	float: left;
+	clear: right;
+	font-family: sans-serif;
+	font-size: 14px;
+	padding:0 10px 10px 10px;
 	
-	#event-output{ width: 300px; height: 200px; background: #333; color: white; }
+}
+#message p{
+	text-transform: uppercase;
+	padding:0px 20px;
+	font-size: 20px;
+}
+#modeChange p{
+	font-size: 55px;
+	text-align: center;
+	padding: 0;
+	margin:0 ;
+}
+#sessionStart p, #sessionEnd p {
+	font-size: 12px;
+	color: white;
+	text-align: center;
+}	
 	
 </style>
 </head>
 <body>
 
-	<div id="chatroom">
-		<ul id="chat_log">
-		</ul>
-	</div>
-
-	<input type="text" name="chat_box" value="" id="chat_box" placeholder="type to chat..." />
-
-
-	<p id="event-output">CLICK ME</p>
-
-
-
-
+	<div id="sessionStart"><h3>Session Start</h3><p><!-- session start --></p></div>
+	<div id="modeChange"><h3>Mode</h3><p><!-- mode --></p></div>
+	<div id="sessionEnd"><h3>Session End</h3><p><!-- session end --></p></div>
+	<div id="message"><h3>Message</h3><p><!-- message --></p></div>
+	
+	
+	
 </body>
 </html>
