@@ -1,0 +1,79 @@
+<server>
+	<address>thetalkingshoe.com</address>
+	<port>8080</port>
+</server>   <!-- if you need port or SSL options, let me know and I'll try to add that... -->
+
+<events>
+	<event>
+		<time>8</time>
+		<type>message</type>
+		<message>in case you forgot, it's left right left right</message>
+	</event>
+
+	<event>
+		<time>17</time>
+		<type>message</type>
+		<message>sleep mode on</message>
+	</event>
+
+	<event>
+		<time>19</time>
+		<type>message</type>
+		<message>you keep this up and you'll be running soon</message>
+	</event>
+
+	<event>
+		<time>23</time>
+		<type>message</type>
+		<message>it's go time</message>
+	</event>
+
+	<event>
+		<time>33</time>
+		<type>message</type>
+		<message>go go go go go</message>
+	</event>
+
+	<event>
+		<time>41</time>
+		<type>message</type>
+		<message>it felt good to get this energy out</message>
+	</event>
+
+	<event>
+		<time>50</time>
+		<type>message</type>
+		<message>sitting down the job, are we?</message>
+	</event>
+
+	<event>
+		<time>0.001</time>
+		<type>modeChange</type>
+		<mode>0</mode>
+	</event>
+
+	<event>
+		<time>12</time>
+		<type>modeChange</type>
+		<mode>1</mode>
+	</event>
+
+	<event>
+		<time>20</time>
+		<type>modeChange</type>
+		<mode>2</mode>
+	</event>
+
+	<event>
+		<time>27</time>
+		<type>modeChange</type>
+		<mode>3</mode>
+	</event>
+
+	<event>
+		<time>35</time>
+		<type>modeChange</type>
+		<mode>0</mode>
+	</event>
+
+</events>

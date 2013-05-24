@@ -1,0 +1,129 @@
+
+/* ================================================================
+	
+	Beginning of the users session.
+	
+	type: "string" - This is optional. We can rely on the event name
+	mode: "int" - Running, walking, etc.
+	message: "string" - displayed in the banner
+	personality: "string" - Voice style is being used
+	soundID: "int" - The voice audio file to play in the banner	
+	timestamp: "string" - Need to display per message.
+	milliseconds: "int" - Relative to beginning of session  	
+	userPic: G+ profile picture, URL to image 
+	userName: G+ username ex: "Kevin"
+	Lat/Long: needed to display map location (city name)
+
+================================================================== */  
+{
+    "sessionStart": [
+        {
+            "type": "message",
+            "mode" : "0"
+            "message": "Hello there, let's get going!",
+            "personality" : "hipster",
+            "soundID" : "3",
+            "timestamp": "1368818571",
+            "milliseconds": "4000",
+            "userPic": "url to picture",
+            "userName": "James Johnson",
+            "lat" : "15.7880996",
+            "long" : "35.693890"
+        }
+    ]
+}
+
+
+/* ==================================================================  
+	
+	End of users session
+	
+	type: "string" - This is optional. We can rely on the event name
+	mode: "int" - Running, walking, etc.
+	message: "string" - displayed in the banner
+	personality: "string" - Voice style is being used
+	soundID: "int" - The voice audio file to play in the banner	
+	timestamp: "string" - Need to display per message.
+	milliseconds: "int" - Relative to beginning of session  	
+	sessionTime: "int" - Total time in milliseconds of user session
+	
+================================================================== */  
+{
+    "sessionEnd": [
+        {
+            "type": "change",
+            "message": "in case you forgot, it's left right left right",
+            "personality" : "hipster",
+            "soundID" : "78",
+            "timestamp": "1368818571",
+            "milliseconds": "4000",
+  			"sessionTime" : "24000"          
+        }
+    ]
+}
+
+
+/* ==================================================================
+	
+	Mode change (running, walking, etc)
+	
+	type: "string" - This is optional. We can rely on the event name
+	mode: "int" - Running, walking, etc.
+	message: "string" - displayed in the banner
+	personality: "string" - Voice style is being used
+	soundID: "int" - The voice audio file to play in the banner	
+	timestamp: "string" - Need to display per message.
+	milliseconds: "int" - Relative to beginning of session  	
+
+	
+================================================================== */  
+{
+    "modeChange": [
+        {
+            "type": "modeChange",
+            "mode" : "4"
+            "message": "You are so fast you can dodge rain drops!",
+            "personality" : "hipster",
+            "soundID" : "34",
+  			"timestamp" : "1368818571",
+  			"milliseconds" : "4000",
+  			"sensorData" : {
+	  			"angle" : "180",
+	  			"steps" : "40",
+	  			"speed" : "12"	  			
+  			}          
+        }
+    ]
+}
+
+
+/* ==================================================================
+	
+	Sound muted from phone
+	
+	type: "string" - This is optional. We can rely on the event name
+	mode: "int" - Running, walking, etc.
+	message: "string" - displayed in the banner
+	personality: "string" - Voice style is being used
+	soundID: "int" - The voice audio file to play in the banner	
+	timestamp: "string" - Need to display per message.
+	milliseconds: "int" - Relative to beginning of session  	
+
+	
+================================================================== */  
+{
+    "soundOff": [
+        {
+            "type": "modeChange",
+            "mode" : "9"
+  			"timestamp" : "1368818571",
+  			"milliseconds" : "4000",
+        }
+    ]
+}
+
+
+
+
+
+
